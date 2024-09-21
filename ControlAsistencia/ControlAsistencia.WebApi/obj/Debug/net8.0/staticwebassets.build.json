@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bZDi4UGKuYauIyk2Ln9vB1DD7S7mDRNg+Mp71s8eA7k=",
+  "Source": "ControlAsistencia.WebApi",
+  "BasePath": "_content/ControlAsistencia.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

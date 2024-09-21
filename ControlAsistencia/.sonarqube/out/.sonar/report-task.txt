@@ -1,0 +1,7 @@
+organization=alvarocontreras13
+projectKey=alvarocontreras13_apibank
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.56697
+dashboardUrl=https://sonarcloud.io/dashboard?id=alvarocontreras13_apibank
+ceTaskId=AZIOCif5xVa6CIPr6z3_
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZIOCif5xVa6CIPr6z3_

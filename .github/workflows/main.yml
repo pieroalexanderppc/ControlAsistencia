@@ -1,0 +1,24 @@
+name: Commit Report
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get the latest commits
+        run: |
+          git log -n 10 --pretty=format:"%h %an %s" > commit_report.txt
+          # Puedes ajustar el número 10 para el número de commits que quieras incluir
+
+      - name: Upload report
+        uses: actions/upload-artifact@v3
+        with:
+          name: commit-report
+          path: commit_report.txt

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DCTablas">
+  <DataContextMoniker Name="/DCTablasDataContext" />
+  <nestedChildShapes>
+    <classShape Id="401de108-05af-48a6-9aa4-edcf3bd242d9" absoluteBounds="0.5, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DCTablasDataContext/Area" />
+      <nestedChildShapes>
+        <elementListCompartment Id="741cd387-6ec4-41dc-ad24-0916f37d93d8" absoluteBounds="0.51500000000000012, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="099f037f-84f3-44d8-bad8-e6e33fe97133" absoluteBounds="7.25, 0.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DCTablasDataContext/Asistencia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="accada2b-07f1-4d06-bc30-266b45271ce3" absoluteBounds="7.265, 1.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe66100e-ef14-4da7-a90d-a91aa3b215ad" absoluteBounds="7.25, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DCTablasDataContext/Empleado_Puesto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="122f33a9-3da5-4f37-9591-fa4c98473b15" absoluteBounds="7.2650000000000006, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="825cfbc0-350e-4230-bffa-41823bccc7f1" absoluteBounds="0.5, 5.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DCTablasDataContext/Falta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa045751-ea01-409d-98bb-dd90097bb847" absoluteBounds="0.51500000000000012, 5.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f776376f-a59d-43b5-867a-d410552dd325" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DCTablasDataContext/Horario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6381cc1-43a5-4045-b291-cebbdd875eed" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 2.27089680989583); (1.5 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCTablasDataContext/Horario/Horario_Area" />
+      <nodes>
+        <classShapeMoniker Id="f776376f-a59d-43b5-867a-d410552dd325" />
+        <classShapeMoniker Id="401de108-05af-48a6-9aa4-edcf3bd242d9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c2c5e23c-efe9-4ddb-9401-2fe8dd128b1d" absoluteBounds="7.25, 5.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DCTablasDataContext/Puesto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a5a6256-cfbe-4e88-8a86-d1e6c44efa3a" absoluteBounds="7.265, 5.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 5.5); (8.25 : 4.57859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DCTablasDataContext/Puesto/Puesto_Empleado_Puesto" />
+      <nodes>
+        <classShapeMoniker Id="c2c5e23c-efe9-4ddb-9401-2fe8dd128b1d" />
+        <classShapeMoniker Id="fe66100e-ef14-4da7-a90d-a91aa3b215ad" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e363730e-2e91-42ff-85ed-4367f303d56e" absoluteBounds="4.125, 2.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DCTablasDataContext/Empleado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="299a862b-503e-4868-b873-e753943a2448" absoluteBounds="4.14, 3.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 2.625); (5.125 : 1.51044840494792); (7.25 : 1.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCTablasDataContext/Empleado/Empleado_Asistencia" />
+      <nodes>
+        <classShapeMoniker Id="e363730e-2e91-42ff-85ed-4367f303d56e" />
+        <classShapeMoniker Id="099f037f-84f3-44d8-bad8-e6e33fe97133" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 3.78929768880208); (7.25 : 3.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCTablasDataContext/Empleado/Empleado_Empleado_Puesto" />
+      <nodes>
+        <classShapeMoniker Id="e363730e-2e91-42ff-85ed-4367f303d56e" />
+        <classShapeMoniker Id="fe66100e-ef14-4da7-a90d-a91aa3b215ad" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 4.97280110677083); (5.125 : 5.81814697265625); (2.5 : 5.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCTablasDataContext/Empleado/Empleado_Falta" />
+      <nodes>
+        <classShapeMoniker Id="e363730e-2e91-42ff-85ed-4367f303d56e" />
+        <classShapeMoniker Id="825cfbc0-350e-4230-bffa-41823bccc7f1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 3.53929768880208); (4.125 : 3.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DCTablasDataContext/Area/Area_Empleado" />
+      <nodes>
+        <classShapeMoniker Id="401de108-05af-48a6-9aa4-edcf3bd242d9" />
+        <classShapeMoniker Id="e363730e-2e91-42ff-85ed-4367f303d56e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

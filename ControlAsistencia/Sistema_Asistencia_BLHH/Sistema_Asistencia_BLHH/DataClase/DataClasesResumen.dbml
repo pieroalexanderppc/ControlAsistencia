@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_Asistencia" Class="DataClasesResumenDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=db_Asistencia;User ID=sa" SettingsObjectName="Sistema_Asistencia_BLHH.Properties.Settings" SettingsPropertyName="db_AsistenciaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.SP_LoginUsuario" Method="SP_LoginUsuario">
+    <Parameter Name="pusuario" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="ppassword" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="SP_LoginUsuarioResult">
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Nivel" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_BuscarAsistenciasPorDia" Method="SP_BuscarAsistenciasPorDia">
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_BuscarAsistenciasPorDiaResult">
+      <Column Name="IdAsistencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAsistencia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HoraSalida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_BuscarEmpleado" Method="SP_BuscarEmpleado">
+    <Parameter Name="buscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="SP_BuscarEmpleadoResult">
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreArea" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DNI" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Genero" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ObtenerFaltasPorEmpleado" Method="SP_ObtenerFaltasPorEmpleado">
+    <Parameter Name="buscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="SP_ObtenerFaltasPorEmpleadoResult">
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Falta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ObtenerFaltasPorFecha" Method="SP_ObtenerFaltasPorFecha">
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_ObtenerFaltasPorFechaResult">
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreArea" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Falta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ObtenerTardanzas" Method="SP_ObtenerTardanzas">
+    <Parameter Name="buscar" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dia" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_ObtenerTardanzasResult">
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAsistencia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HoraEntradaEsperada" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="Area" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TardanzaEnMinutos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_MarcarAsistencia" Method="SP_MarcarAsistencia">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="DNI" Parameter="dNI" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="SP_MarcarAsistenciaResult">
+      <Column Name="Mensaje" Type="System.String" DbType="VarChar(33) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

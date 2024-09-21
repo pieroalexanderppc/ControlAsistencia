@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_Asistencia" Class="DCTablasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=db_Asistencia;User ID=sa" SettingsObjectName="Sistema_Asistencia_BLHH.Properties.Settings" SettingsPropertyName="db_AsistenciaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Area" Member="Area">
+    <Type Name="Area">
+      <Column Name="IdArea" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdHorario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreArea" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Area_Empleado" Member="Empleado" ThisKey="IdArea" OtherKey="IdArea" Type="Empleado" />
+      <Association Name="Horario_Area" Member="Horario" ThisKey="IdHorario" OtherKey="IdHorario" Type="Horario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Asistencia" Member="Asistencia">
+    <Type Name="Asistencia">
+      <Column Name="IdAsistencia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAsistencia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HoraSalida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="Empleado_Asistencia" Member="Empleado" ThisKey="IdEmpleado" OtherKey="IdEmpleado" Type="Empleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Empleado_Puesto" Member="Empleado_Puesto">
+    <Type Name="Empleado_Puesto">
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdPuesto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaFin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Puesto_Empleado_Puesto" Member="Puesto" ThisKey="IdPuesto" OtherKey="IdPuesto" Type="Puesto" IsForeignKey="true" />
+      <Association Name="Empleado_Empleado_Puesto" Member="Empleado" ThisKey="IdEmpleado" OtherKey="IdEmpleado" Type="Empleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Falta" Member="Falta">
+    <Type Name="Falta">
+      <Column Name="IdFalta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaFalta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Empleado_Falta" Member="Empleado" ThisKey="IdEmpleado" OtherKey="IdEmpleado" Type="Empleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Horario" Member="Horario">
+    <Type Name="Horario">
+      <Column Name="IdHorario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraEntrada" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalida" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="Horario_Area" Member="Area" ThisKey="IdHorario" OtherKey="IdHorario" Type="Area" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Puesto" Member="Puesto">
+    <Type Name="Puesto">
+      <Column Name="IdPuesto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombrePuesto" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Puesto_Empleado_Puesto" Member="Empleado_Puesto" ThisKey="IdPuesto" OtherKey="IdPuesto" Type="Empleado_Puesto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Empleado" Member="Empleado">
+    <Type Name="Empleado">
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdArea" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DNI" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Genero" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Empleado_Asistencia" Member="Asistencia" ThisKey="IdEmpleado" OtherKey="IdEmpleado" Type="Asistencia" />
+      <Association Name="Empleado_Empleado_Puesto" Member="Empleado_Puesto" ThisKey="IdEmpleado" OtherKey="IdEmpleado" Type="Empleado_Puesto" />
+      <Association Name="Empleado_Falta" Member="Falta" ThisKey="IdEmpleado" OtherKey="IdEmpleado" Type="Falta" />
+      <Association Name="Area_Empleado" Member="Area" ThisKey="IdArea" OtherKey="IdArea" Type="Area" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
